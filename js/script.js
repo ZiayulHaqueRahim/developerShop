@@ -8,6 +8,13 @@ const completedButton4 = document.querySelectorAll('#completedButton')[3]
 const completedButton5 = document.querySelectorAll('#completedButton')[4]
 const completedButton6 = document.querySelectorAll('#completedButton')[5]
 
+let count = 0;
+
+
+let myDate = new Date();
+
+document.getElementById('Date').innerText = myDate.toDateString();
+
 // // <script>
 //         // creating a function that add children into ul parent
 //                     // Not Optimized bcz full tree traversal used====
@@ -56,9 +63,38 @@ const completedButton6 = document.querySelectorAll('#completedButton')[5]
                     
 
 
+const randomColor = function(){
+    const hexValue = '0123456789ABCDEF';
+    let color = '#';
+    for(let i = 0; i < 6; i++){
+        color += hexValue[Math.floor(Math.random() * 16)];
+    }return color;
+};
+
+
+document.querySelector('#colorChange').addEventListener('click',  function changeBackgroundColor(){
+    document.body.style.backgroundColor = randomColor();
+})
+
+
+
+
+const history = document.getElementById('clear');
+history.addEventListener('click', function(){
+    // Select the parent element
+var parentElement = document.getElementById('task-info');
+
+// Clear the inner HTML of the parent element
+parentElement.innerHTML = '';
+})
+
+
+
+
+
 function addInfo(btninfo){
     const p = document.createElement('p');
-        p.innerText = btninfo;
+    p.innerText = ` You have completed the task ${btninfo} at ${myDate.toLocaleTimeString()}`;
     const taskContainer = document.getElementById('task-info');
     taskContainer.appendChild(p);
 }
@@ -66,9 +102,6 @@ function addInfo(btninfo){
 function invissible(invissible){
     invissible.classList.add('hidden');
 }
-
-
-
 
 
 
@@ -87,8 +120,14 @@ completedButton1.addEventListener("click", function(e){
      btn = document.getElementById('btn1').innerText;
     addInfo(btn);
     invissible(completedButton1);
-
+    currentcount = count + 1;
+    count = currentcount;
+    console.log(count);
+    if(count == 6){
+        alert('yiu completed all task')
+    }
     
+
 })
 
 
@@ -105,7 +144,13 @@ completedButton2.addEventListener("click", function(e){
      btn = document.getElementById('btn2').innerText;
     addInfo(btn);
     invissible(completedButton2);
-
+    currentcount = count + 1;
+    count = currentcount;
+    console.log(count);
+    if(count == 6){
+        alert('yiu completed all task')
+    }
+    
 })
 
 
@@ -122,7 +167,13 @@ completedButton3.addEventListener("click", function(e){
      btn = document.getElementById('btn3').innerText;
     addInfo(btn);
     invissible(completedButton3);
-
+    currentcount = count + 1;
+    count = currentcount;
+    console.log(count);
+    if(count == 6){
+        alert('yiu completed all task')
+    }
+    
 })
 
 
@@ -139,7 +190,13 @@ completedButton4.addEventListener("click", function(e){
      btn = document.getElementById('btn4').innerText;
     addInfo(btn);
     invissible(completedButton4);
-
+    currentcount = count + 1;
+    count = currentcount;
+    console.log(count);
+    if(count == 6){
+        alert('yiu completed all task')
+    }
+    
 })
 
 
@@ -156,7 +213,13 @@ completedButton5.addEventListener("click", function(e){
      btn = document.getElementById('btn5').innerText;
     addInfo(btn);
     invissible(completedButton5);
-
+    currentcount = count + 1;
+    count = currentcount;
+    console.log(count);
+    if(count == 6){
+        alert('yiu completed all task')
+    }
+    
 })
 
 
@@ -173,5 +236,13 @@ completedButton6.addEventListener("click", function(e){
      btn = document.getElementById('btn6').innerText;
     addInfo(btn);
     invissible(completedButton6);
+    currentcount = count + 1;
+    count = currentcount;
+    console.log(count);
+    if(count == 6){
+        alert('congrats!!! You have completed all tasks')
+    }
+    
+});
 
-})
+
